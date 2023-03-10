@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.urls import reverse
 from employee.forms import EmployeeCreateForm
 from leave.models import Leave
+
 from employee.models import *
 from leave.forms import LeaveCreationForm
 from django.core.mail import send_mail
@@ -95,9 +96,11 @@ def dashboard_employees_create(request):
 			
 			instance.birthday = request.POST.get('birthday')
 
-			
 
-			
+
+
+
+
 
 
 
@@ -114,15 +117,17 @@ def dashboard_employees_create(request):
 
 			instance.save()
 
-           # sending Email for Registered Employee
-			# email = EmailMessage(
-			# 	'Registration For LMS',
-			# 	'hello.. Welcome Todo App',
-			# 	settings.EMAIL_HOST_USER,
-			# 	[request.user.email],
-			# )
-			# email.fail_silently = False
-			# email.send()
+            #print(request.POST.get('email'))
+            # sending Email for Registered Employee
+
+			email = EmailMessage(
+				'Registration For LMS',
+				'hello.. Welcome Leave management system',
+				settings.EMAIL_HOST_USER,
+				[request.POST.get('email')],
+			)
+			email.fail_silently = False
+			email.send()
 
 
 			return  redirect('dashboard:employees')

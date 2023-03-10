@@ -109,8 +109,9 @@ class Employee(models.Model):
     othername = models.CharField(_('Othername (optional)'),max_length=125,null=True,blank=True)
     birthday = models.DateField(_('Birthday'),blank=False,null=False)
 
+    email = models.EmailField(max_length = 254)
     gender = models.CharField(max_length=30)
-    age = models.IntegerField(max_length=30)
+    age = models.IntegerField()
    
  
     department =  models.ForeignKey(Department,verbose_name =_('Department'),on_delete=models.SET_NULL,null=True,default=None)
