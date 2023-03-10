@@ -1,0 +1,14 @@
+Before running please install bellow packages and RUN THE PROJECT AFTER THE SRC DIRECTORY ,
+
+pip install requirements.txt
+
+pip install django-crispy-forms==1.14.0
+
+Pillow==5.2.0
+
+django-phonenumber-field==2.2.0
+
+pip install django-widget-tweaks
+
+pip install bootstrap4
+
